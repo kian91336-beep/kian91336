@@ -1,330 +1,488 @@
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kamin | Fun Zone</title>
 
-    <title>سایت خفن من</title>
-
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: Tahoma, Arial, sans-serif;
-            color: #ffffff;
-            background: #080b14;
-            min-height: 100vh;
-            overflow-x: hidden;
-        }
-
-        .background {
-            position: fixed;
-            inset: 0;
-            z-index: -1;
-            background:
-                radial-gradient(ellipse at top, #18264b 0%, transparent 60%),
-                radial-gradient(ellipse at bottom, #301344 0%, transparent 60%),
-                #080b14;
-        }
-
-        header {
-            width: 100%;
-            padding: 22px 6%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border-bottom: 1px solid #ffffff18;
-        }
-
-        .brand {
-            font-size: clamp(18px, 3vw, 25px);
-            font-weight: bold;
-            color: #a8c7ff;
-        }
-
-        .badge {
-            font-size: 12px;
-            padding: 8px 13px;
-            border: 1px solid #5d83ff66;
-            border-radius: 30px;
-            color: #b8caff;
-            background: #ffffff08;
-        }
-
-        main {
-            width: min(100% - 32px, 1000px);
-            margin: auto;
-        }
-
-        .hero {
-            min-height: 75vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            padding: 70px 0;
-        }
-
-        .circle {
-            width: clamp(85px, 16vw, 130px);
-            aspect-ratio: 1;
-            display: grid;
-            place-items: center;
-            border-radius: 50%;
-            font-size: clamp(35px, 7vw, 55px);
-            background: linear-gradient(135deg, #5078ff, #a14dff);
-            box-shadow: 0 0 55px #7050ff55;
-            margin-bottom: 30px;
-        }
-
-        h1 {
-            font-size: clamp(27px, 6vw, 58px);
-            line-height: 1.7;
-            margin-bottom: 15px;
-        }
-
-        .highlight {
-            color: #9bb7ff;
-        }
-
-        .description {
-            max-width: 650px;
-            color: #b8bfd2;
-            font-size: clamp(14px, 2.5vw, 18px);
-            line-height: 2.2;
-        }
-
-        .button {
-            display: inline-block;
-            margin-top: 30px;
-            padding: 14px 27px;
-            border-radius: 12px;
-            text-decoration: none;
-            color: white;
-            background: linear-gradient(100deg, #426cff, #9250ed);
-            font-weight: bold;
-            transition: transform 0.2s;
-        }
-
-        .button:hover {
-            transform: translateY(-3px);
-        }
-
-        .section {
-            padding: 55px 0;
-        }
-
-        .section h2 {
-            text-align: center;
-            font-size: clamp(23px, 4vw, 34px);
-            margin-bottom: 30px;
-        }
-
-        .cards {
-            display: grid;
-            grid-template-columns: repeat(3, minmax(0, 1fr));
-            gap: 18px;
-        }
-
-        .card {
-            padding: 25px 18px;
-            border-radius: 18px;
-            background: #ffffff08;
-            border: 1px solid #ffffff15;
-            text-align: center;
-            transition: 0.25s;
-        }
-
-        .card:hover {
-            transform: translateY(-5px);
-            border-color: #718aff88;
-            background: #ffffff0d;
-        }
-
-        .card .icon {
-            font-size: 32px;
-            margin-bottom: 15px;
-        }
-
-        .card h3 {
-            font-size: 17px;
-            margin-bottom: 12px;
-        }
-
-        .card p {
-            color: #aeb6ca;
-            font-size: 13px;
-            line-height: 2;
-        }
-
-        .message {
-            margin: 35px 0 65px;
-            padding: 35px 20px;
-            text-align: center;
-            border-radius: 20px;
-            background: linear-gradient(135deg, #263b7544, #6c2c8244);
-            border: 1px solid #ffffff18;
-        }
-
-        .message p {
-            color: #d0d5e5;
-            line-height: 2.2;
-        }
-
-        footer {
-            padding: 35px 15px;
-            text-align: center;
-            border-top: 1px solid #ffffff18;
-            background: #ffffff04;
-        }
-
-        .credit {
-            font-size: clamp(17px, 3vw, 22px);
-            font-weight: bold;
-            line-height: 2;
-        }
-
-        .logo {
-            width: 65px;
-            height: 65px;
-            margin: 25px auto 12px;
-            border: 2px solid #ffffff45;
-            border-radius: 50%;
-            display: grid;
-            place-items: center;
-            font-size: 25px;
-            font-weight: bold;
-            color: #b7c8ff;
-            background: linear-gradient(135deg, #24386b, #47255e);
-            box-shadow: 0 0 30px #655cff33;
-        }
-
-        .logo-text {
-            color: #b9c4e2;
-            font-size: 14px;
-        }
-
-        .copyright {
-            margin-top: 22px;
-            font-size: 11px;
-            color: #707b96;
-        }
-
-        @media (max-width: 650px) {
-            header {
-                padding: 18px 5%;
-            }
-
-            .cards {
-                grid-template-columns: 1fr;
-            }
-
-            .hero {
-                min-height: 70vh;
-                padding: 55px 0;
-            }
-
-            .section {
-                padding: 35px 0;
-            }
-
-            .card {
-                padding: 25px;
-            }
-        }
-    </style>
+<style>
+:root {
+  --bg: #0b1020;
+  --card: #151d32;
+  --text: #f1f5ff;
+  --muted: #a7b4d0;
+  --accent: #00e5ff;
+  --border: #293550;
+}
+body.light {
+  --bg: #eef3fa;
+  --card: #ffffff;
+  --text: #172033;
+  --muted: #58657b;
+  --accent: #007cba;
+  --border: #d5deeb;
+}
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  font-family: Tahoma, Arial, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  transition: .25s;
+}
+header {
+  padding: 18px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  border-bottom: 1px solid var(--border);
+}
+.logo {
+  font-size: 23px;
+  font-weight: bold;
+  color: var(--accent);
+}
+.controls {
+  display: flex;
+  gap: 8px;
+}
+button, input, textarea {
+  font: inherit;
+}
+button {
+  border: none;
+  cursor: pointer;
+  border-radius: 10px;
+  padding: 11px 15px;
+  background: var(--accent);
+  color: #06111c;
+  font-weight: bold;
+}
+button:hover {
+  filter: brightness(1.12);
+}
+nav {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding: 14px;
+}
+nav a {
+  color: var(--text);
+  text-decoration: none;
+  padding: 9px 12px;
+  border-radius: 9px;
+}
+nav a:hover {
+  background: var(--card);
+  color: var(--accent);
+}
+.hero {
+  text-align: center;
+  padding: 55px 18px 35px;
+}
+.hero h1 {
+  font-size: clamp(28px, 6vw, 48px);
+  margin-bottom: 12px;
+}
+.hero h1 span {
+  color: var(--accent);
+}
+.hero p {
+  color: var(--muted);
+  line-height: 2;
+}
+.container {
+  width: min(1000px, 92%);
+  margin: auto;
+}
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 18px;
+  margin: 25px 0 45px;
+}
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  padding: 22px;
+  text-align: center;
+  overflow-wrap: anywhere;
+}
+.card h2 {
+  color: var(--accent);
+  font-size: 21px;
+}
+.card p {
+  color: var(--muted);
+  line-height: 1.8;
+}
+.result {
+  font-size: 24px;
+  padding: 18px 0;
+  min-height: 65px;
+}
+input, textarea {
+  display: block;
+  width: 100%;
+  margin: 12px 0;
+  padding: 13px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: var(--bg);
+  color: var(--text);
+  outline: none;
+}
+textarea {
+  min-height: 130px;
+  resize: vertical;
+}
+input:focus, textarea:focus {
+  border-color: var(--accent);
+}
+section {
+  scroll-margin-top: 20px;
+}
+.notice {
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.8;
+}
+footer {
+  text-align: center;
+  padding: 25px 12px;
+  border-top: 1px solid var(--border);
+  color: var(--muted);
+}
+body.en {
+  direction: ltr;
+}
+body.en header {
+  direction: ltr;
+}
+body.en nav {
+  direction: ltr;
+}
+body.en .card {
+  text-align: center;
+}
+@media (max-width: 480px) {
+  header {
+    padding: 14px;
+  }
+  .logo {
+    font-size: 19px;
+  }
+  .controls button {
+    padding: 9px;
+    font-size: 12px;
+  }
+  .hero {
+    padding-top: 35px;
+  }
+}
+</style>
 </head>
 
 <body>
 
-    <div class="background"></div>
+<header>
+  <div class="logo">⚡ Kamin Zone</div>
 
-    <header>
-        <div class="brand">وب‌سایت من</div>
-        <div class="badge">نسخه ۱.۰</div>
-    </header>
+  <div class="controls">
+    <button onclick="toggleLanguage()" id="langBtn">English</button>
+    <button onclick="toggleTheme()" id="themeBtn">☀️ روشن</button>
+  </div>
+</header>
 
-    <main>
+<nav>
+  <a href="#home" data-fa="خانه" data-en="Home">خانه</a>
+  <a href="#games" data-fa="سرگرمی‌ها" data-en="Fun Zone">سرگرمی‌ها</a>
+  <a href="#calculator" data-fa="ماشین‌حساب" data-en="Calculator">ماشین‌حساب</a>
+  <a href="#support" data-fa="پشتیبانی" data-en="Support">پشتیبانی</a>
+</nav>
 
-        <section class="hero">
+<section class="hero" id="home">
+  <h1 data-fa="به دنیای <span>سرگرمی</span> خوش اومدی!"
+      data-en="Welcome to the <span>Fun Zone</span>!">
+    به دنیای <span>سرگرمی</span> خوش اومدی!
+  </h1>
+  <p data-fa="بازی کن، امتحان کن و لذت ببر."
+     data-en="Play, experiment, and have fun.">
+    بازی کن، امتحان کن و لذت ببر.
+  </p>
+  <a href="#games">
+    <button data-fa="شروع کن 🚀" data-en="Get Started 🚀">شروع کن 🚀</button>
+  </a>
+</section>
 
-            <div class="circle">✦</div>
+<main class="container">
 
-            <h1>
-                به دنیای
-                <span class="highlight">من</span>
-                خوش اومدی!
-            </h1>
+<section id="games">
+  <h2 data-fa="🎮 سرگرمی‌ها" data-en="🎮 Fun Zone">🎮 سرگرمی‌ها</h2>
 
-            <p class="description">
-                این یه وب‌سایت شخصیه که با HTML و CSS ساخته شده.
-                طراحی واکنش‌گرا، ظاهر مدرن و سازگار با صفحه‌های
-                کوچک و بزرگ.
-            </p>
+  <div class="grid">
 
-            <a href="#about" class="button">
-                بریم پایین‌تر ↓
-            </a>
+    <div class="card">
+      <h2 data-fa="🎲 تاس" data-en="🎲 Dice">🎲 تاس</h2>
+      <p data-fa="تاس بنداز و شانست رو امتحان کن."
+         data-en="Roll the dice and test your luck.">
+        تاس بنداز و شانست رو امتحان کن.
+      </p>
+      <div class="result" id="diceResult">⚄</div>
+      <button onclick="rollDice()" data-fa="انداختن تاس" data-en="Roll Dice">
+        انداختن تاس
+      </button>
+    </div>
 
-        </section>
+    <div class="card">
+      <h2 data-fa="🔢 حدس عدد" data-en="🔢 Guess the Number">
+        🔢 حدس عدد
+      </h2>
+      <p data-fa="یک عدد بین ۱ تا ۲۰ حدس بزن."
+         data-en="Guess a number from 1 to 20.">
+        یک عدد بین ۱ تا ۲۰ حدس بزن.
+      </p>
+      <input type="number" id="guessInput" min="1" max="20"
+             placeholder="عدد موردنظر">
+      <button onclick="guessNumber()" data-fa="حدس بزن" data-en="Guess">
+        حدس بزن
+      </button>
+      <div class="result" id="guessResult" style="font-size:16px"></div>
+      <button onclick="resetGuess()" data-fa="بازی جدید" data-en="New Game">
+        بازی جدید
+      </button>
+    </div>
 
-        <section class="section" id="about">
+    <div class="card">
+      <h2 data-fa="💡 جمله تصادفی" data-en="💡 Random Quote">
+        💡 جمله تصادفی
+      </h2>
+      <p id="quoteText">روی دکمه بزن تا یک جمله ببینی!</p>
+      <button onclick="randomQuote()" data-fa="یه جمله بده"
+              data-en="New Quote">یه جمله بده</button>
+    </div>
 
-            <h2>دربارهٔ این سایت</h2>
+  </div>
+</section>
 
-            <div class="cards">
+<section id="calculator">
+  <div class="card">
+    <h2 data-fa="🧮 ماشین‌حساب" data-en="🧮 Calculator">
+      🧮 ماشین‌حساب
+    </h2>
 
-                <div class="card">
-                    <div class="icon">📱</div>
-                    <h3>مناسب موبایل</h3>
-                    <p>
-                        چیدمان سایت با عرض صفحهٔ گوشی
-                        هماهنگ می‌شود.
-                    </p>
-                </div>
+    <input id="calcInput" type="text" inputmode="decimal"
+           placeholder="مثلاً 12*(5+3)">
 
-                <div class="card">
-                    <div class="icon">💻</div>
-                    <h3>مناسب کامپیوتر</h3>
-                    <p>
-                        در صفحه‌های بزرگ‌تر هم ظاهر سایت
-                        متناسب با اندازهٔ نمایشگر است.
-                    </p>
-                </div>
+    <button onclick="calculate()" data-fa="محاسبه کن" data-en="Calculate">
+      محاسبه کن
+    </button>
 
-                <div class="card">
-                    <div class="icon">⚡</div>
-                    <h3>سبک و ساده</h3>
-                    <p>
-                        بدون نیاز به کتابخانه‌های خارجی
-                        یا فایل‌های سنگین.
-                    </p>
-                </div>
+    <div class="result" id="calcResult"></div>
 
-            </div>
+    <p class="notice"
+       data-fa="عملیات +، -، ×، ÷ و پرانتز پشتیبانی می‌شوند."
+       data-en="Supports +, -, *, / and parentheses.">
+      عملیات +، -، ×، ÷ و پرانتز پشتیبانی می‌شوند.
+    </p>
+  </div>
+</section>
 
-        </section>
+<section id="support">
+  <div class="card">
+    <h2 data-fa="📩 پشتیبانی" data-en="📩 Support">📩 پشتیبانی</h2>
 
-        <section class="message">
-            <h2>خب، رسیدی این پایین! 😎</h2>
-            <p>
-                این سایت فقط یه شروعه.
-                می‌تونی در آینده امکانات بیشتری بهش اضافه کنی.
-            </p>
-        </section>
+    <p data-fa="پیام، پیشنهاد یا مشکلت رو برامون بفرست."
+       data-en="Send us your message, suggestion, or issue.">
+      پیام، پیشنهاد یا مشکلت رو برامون بفرست.
+    </p>
 
-    </main>
+    <form action="https://formsubmit.co/kamin123456789101112@gmail.com"
+          method="POST">
 
-    </footer>
+      <input type="text" name="name" required
+             placeholder="نام شما"
+             data-placeholder-fa="نام شما"
+             data-placeholder-en="Your name">
+
+      <input type="email" name="email"
+             placeholder="ایمیل شما (اختیاری)"
+             data-placeholder-fa="ایمیل شما (اختیاری)"
+             data-placeholder-en="Your email (optional)">
+
+      <textarea name="message" required
+                placeholder="پیامت رو اینجا بنویس..."
+                data-placeholder-fa="پیامت رو اینجا بنویس..."
+                data-placeholder-en="Write your message here..."></textarea>
+
+      <input type="hidden" name="_subject"
+             value="پیام جدید پشتیبانی Kamin Zone">
+
+      <input type="hidden" name="_captcha" value="true">
+
+      <button type="submit" style="width:100%"
+              data-fa="ارسال پیام 🚀"
+              data-en="Send Message 🚀">
+        ارسال پیام 🚀
+      </button>
+    </form>
+
+    <p class="notice"
+       data-fa="برای فعال شدن دریافت پیام‌ها، ممکن است لازم باشد ایمیلت را در FormSubmit تأیید کنی."
+       data-en="You may need to verify your email with FormSubmit before receiving messages.">
+      برای فعال شدن دریافت پیام‌ها، ممکن است لازم باشد ایمیلت را در FormSubmit تأیید کنی.
+    </p>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <p>© <span id="year"></span> Kamin Zone</p>
+</footer>
+
+<script>
+let language = localStorage.getItem("siteLanguage") || "fa";
+let theme = localStorage.getItem("siteTheme") || "dark";
+let secretNumber = Math.floor(Math.random() * 20) + 1;
+
+document.getElementById("year").textContent = new Date().getFullYear();
+
+function toggleTheme() {
+  theme = theme === "dark" ? "light" : "dark";
+  localStorage.setItem("siteTheme", theme);
+  applyTheme();
+}
+
+function applyTheme() {
+  document.body.classList.toggle("light", theme === "light");
+  document.getElementById("themeBtn").textContent =
+    language === "fa"
+      ? (theme === "dark" ? "☀️ روشن" : "🌙 تاریک")
+      : (theme === "dark" ? "☀️ Light" : "🌙 Dark");
+}
+
+function toggleLanguage() {
+  language = language === "fa" ? "en" : "fa";
+  localStorage.setItem("siteLanguage", language);
+  applyLanguage();
+}
+
+function applyLanguage() {
+  document.documentElement.lang = language;
+  document.documentElement.dir = language === "fa" ? "rtl" : "ltr";
+  document.body.classList.toggle("en", language === "en");
+
+  document.querySelectorAll("[data-fa][data-en]").forEach(element => {
+    element.innerHTML = element.dataset[language];
+  });
+
+  document.querySelectorAll("[data-placeholder-fa]").forEach(element => {
+    element.placeholder = element.dataset[
+      language === "fa" ? "placeholderFa" : "placeholderEn"
+    ];
+  });
+
+  document.getElementById("langBtn").textContent =
+    language === "fa" ? "English" : "فارسی";
+
+  applyTheme();
+}
+
+const diceFaces = ["⚀", "⚁", "⚂", "⚃", "⚄", "⚅"];
+
+function rollDice() {
+  const number = Math.floor(Math.random() * 6);
+  document.getElementById("diceResult").textContent = diceFaces[number];
+}
+
+function guessNumber() {
+  const input = document.getElementById("guessInput");
+  const result = document.getElementById("guessResult");
+  const value = Number(input.value);
+
+  if (!input.value || value < 1 || value > 20 || !Number.isInteger(value)) {
+    result.textContent = language === "fa"
+      ? "یک عدد صحیح بین ۱ تا ۲۰ وارد کن."
+      : "Enter a whole number from 1 to 20.";
+    return;
+  }
+
+  if (value === secretNumber) {
+    result.textContent = language === "fa"
+      ? "🎉 آفرین! درست حدس زدی!"
+      : "🎉 Correct! Well done!";
+  } else if (value < secretNumber) {
+    result.textContent = language === "fa"
+      ? "عدد بزرگ‌تری امتحان کن!"
+      : "Try a higher number!";
+  } else {
+    result.textContent = language === "fa"
+      ? "عدد کوچک‌تری امتحان کن!"
+      : "Try a lower number!";
+  }
+}
+
+function resetGuess() {
+  secretNumber = Math.floor(Math.random() * 20) + 1;
+  document.getElementById("guessInput").value = "";
+  document.getElementById("guessResult").textContent = "";
+}
+
+function randomQuote() {
+  const faQuotes = [
+    "هر روز یک فرصت تازه است.",
+    "با تمرین، چیزهای سخت آسان‌تر می‌شوند.",
+    "قدم‌های کوچک هم تو را جلو می‌برند.",
+    "کنجکاو بمان و چیزهای تازه یاد بگیر."
+  ];
+
+  const enQuotes = [
+    "Every day is a new opportunity.",
+    "Practice makes difficult things easier.",
+    "Small steps still move you forward.",
+    "Stay curious and keep learning."
+  ];
+
+  const quotes = language === "fa" ? faQuotes : enQuotes;
+  document.getElementById("quoteText").textContent =
+    quotes[Math.floor(Math.random() * quotes.length)];
+}
+
+function calculate() {
+  const input = document.getElementById("calcInput").value.trim();
+  const output = document.getElementById("calcResult");
+
+  if (!input || !/^[0-9+\-*/().\s]+$/.test(input)) {
+    output.textContent = language === "fa"
+      ? "عبارت ریاضی معتبر وارد کن."
+      : "Enter a valid math expression.";
+    return;
+  }
+
+  try {
+    const result = Function('"use strict"; return (' + input + ')')();
+
+    output.textContent =
+      typeof result === "number" && Number.isFinite(result)
+        ? result
+        : (language === "fa" ? "عبارت معتبر نیست." : "Invalid expression.");
+  } catch {
+    output.textContent = language === "fa"
+      ? "عبارت ریاضی معتبر نیست."
+      : "Invalid math expression.";
+  }
+}
+
+applyLanguage();
+</script>
 
 </body>
 </html>
